@@ -117,7 +117,10 @@ class DistinctIslands_DFS {
                     //     for (int[] cell : cells){
                     //         System.out.print("(" + cell[0] + "," + cell[1] + ") ");
                     //     }
-                    shapes.add(normalise(cells));
+                    String norm=normalise(cells);
+                    System.out.println("Normalized: "+norm);
+                    shapes.add(norm);
+
                 }
             }
         }
