@@ -155,7 +155,9 @@ function renderCart() {
     <td>${item.name}</td>
     <td>${item.brand}</td>
     <td>${item.cost}</td>
-    <td>${item.quantity}</td>
+    <td>${item.quantity}
+    <button onclick=increment(${i})>+</button>
+    </td>
     <td>$${item.cost*item.quantity}</td>
 
 `
@@ -163,6 +165,10 @@ cartItems.appendChild(row);
   })
 
   // TODO: Implement cart rendering
+}
+function increment(i){
+  cart[i].quantity++;
+  renderCart();
 }
 
 // ========== Initialization ==========
