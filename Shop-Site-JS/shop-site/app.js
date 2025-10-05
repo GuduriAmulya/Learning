@@ -122,7 +122,7 @@ function addToCart(index) {
   // TODO: Implement add-to-cart logic
   // HINT: Use cart.find() to check if the item exists
   const product=filteredByCategory[index];
-  console.log(product);
+  console.log("inside",product);
   const existingItem=cart.find(item=>item.name==product.name);
   if(existingItem){
     existingItem.quantity++;
@@ -157,6 +157,7 @@ function renderCart() {
     <td>${item.cost}</td>
     <td>${item.quantity}
     <button onclick=increment(${i})>+</button>
+    <button onclick=decrement(${i})>-</button>
     </td>
     <td>$${item.cost*item.quantity}</td>
 
@@ -168,6 +169,13 @@ cartItems.appendChild(row);
 }
 function increment(i){
   cart[i].quantity++;
+  renderCart();
+}
+function decrement(i){
+  cart[i].quantity--;
+  if(cart[i].quantity==0){
+    cart.splice(i,i+1);
+  }
   renderCart();
 }
 
