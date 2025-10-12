@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid black;
+            border-radius: 8px;
+            margin-top: 150px;
+            background-color: bisque;
+        }
+        .card input , .card button{
+            margin-top: 10px;
+        }
+        #star-container{
+            display: flex;
+            justify-content: center;
+        }
+        .star {
+        cursor: pointer;
+        color: #ccc; /* Default color */
+        transition: color 0.2s; 
+        /* Smooth color change */
+        margin: 0 5px;
+        font-size: 40px;
+        }
+
+        .star.highlight {
+        color: #ffc107; /* Highlight color */
+        }
+        #rating{
+            display: flex;
+            align-items: center;
+            margin-left:600px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Dynamic Stars</h1>
+        <br/>
+        <input id="input" type="number" min ="1" max="20" placeholder="enter number of stars">
+        <button onclick="submit()">Enter</button>
+        <p id="ok"></p>
+        <!-- dynamically load number of stars.. -->
+    </div>
+    <div id="star-container">
+    </div>
+    <p id="rating"></p>
+    
+</body>
+<script>
+    let stars=[]
+    function submit(){
+        const v=document.getElementById("input").value;
+        console.log(v);
+        document.getElementById("ok").innerText=v;
+        loadStars(v);
+        }
+    function loadStars(v){
+        const starContainer=document.getElementById("star-container");
+        starContainer.innerText="";
+        stars=[]
+        for(let i=0;i<v;i++){
+            const star=document.createElement("span");
+            star.classList.add("star");
+            star.innerHTML="&#9733;"
+            star.dataset.index=i;
+            star.addEventListener('click',handleStarClick);
+            stars.push(star);
+            starContainer.append(star);
+        }
+    }
+    function handleStarClick(e){
+        const selectedind=e.target.dataset.index;
+        console.log(stars)
+        stars.forEach((star,index)=>{
+            if(index<=selectedind){
+                star.classList.add("highlight");
+            }
+            else{
+                star.classList.remove("highlight");
+            }
+        })
+        console.log(stars);
+        document.getElementById("rating").innerText="You have rated "+(parseInt(selectedind)+1)+"/"+stars.length
+
+    }
+    
+      
+</script>
+</html>
