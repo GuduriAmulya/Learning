@@ -1,0 +1,20 @@
+{
+  "anims": [
+    {
+      "_id": "c42ff19a-b788-49ad-84bc-437b91f3cf81",
+      "name": "dusty",
+      "type": "Dog",
+      "age": "1",
+      "breed": "lab",
+      "status": "calm"
+    },
+    {
+      "_id": "03d4cb4c-f1e6-4565-aea4-7847428b6fd7",
+      "name": "wee",
+      "type": "Rabbit",
+      "age": "3",
+      "breed": "rabbitt",
+      "status": "calm"
+    }
+  ]
+}
