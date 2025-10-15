@@ -10,6 +10,7 @@ router.get("/", async (req, res) => {
     // Ex: const XXXX = await XXX.XXXX();
     //code here
 
+    
     // TODO 2: Send the list of animals in pets as JSON response
     // Hint: use res.json(...)
      // code here

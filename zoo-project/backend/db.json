@@ -15,6 +15,14 @@
       "age": "3",
       "breed": "rabbitt",
       "status": "calm"
+    },
+    {
+      "_id": "6bd382b7-459c-4e90-abf1-637065fc771d",
+      "name": "tweety",
+      "type": "Cat",
+      "age": "2",
+      "breed": "tweet",
+      "status": "calm"
     }
   ]
 }
